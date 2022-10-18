@@ -1,0 +1,56 @@
+1. basic test on folder
+go test
+
+2. basic test on folder with verbose
+go test -v
+
+3. test with coverage percentage
+go test -cover
+
+4. test with coverage html report
+go test -coverprofile=coverage.out && go tool cover -html=coverage.out
+
+5. test all in sub folder
+go test ./...
+
+untuk bikin alias command prompt yang panjang
+buka ~/.bashrc atau ~/.profile tambahkan
+alias coverage="go test -coverprofile=coverage.out && go tool cover -html=coverage.out"
+
+kemudian ketik > source ~/.bashrc atau source ~/.profile
+
+setelah itu restart terminal, panggil perintah > coverage
+
+install postgres on docker
+docker run --name postgres13.8 -p 5432:5432 -e POSTGRES_PASSWORD=admin123 -e POSTGRES_USER=root -d postgres:13.8
+
+-> install soda
+tambahkan line dibawah ini pada ~/.bashrc 
+export PATH="$HOME/go/bin:$PATH"
+kemudia reload bashrc dengan source ~./bashrc
+
+-> soda for migrate db
+
+1. soda generate migrate file
+soda generate fizz CreateUserTable
+soda generate fizz CreateFKForReservationsTable
+soda generate fizz AddFKAndIndicesToReservationsTable
+
+2. soda migrate up
+soda migrate
+soda migrate up 
+
+3. soda migrate down
+soda migrate down
+
+4. soda reset for drop database and recreate (db client must disconnected)
+soda reset
+
+install mailhog using docker
+docker run -d --name mailhog -p 1025:1025 -p 8025:8025 mailhog/mailhog
+
+// admin template
+https://github.com/BootstrapDash/RoyalUI-Free-Bootstrap-Admin-Template
+
+// vi cheatsheet
+https://ryanstutorials.net/linuxtutorial/cheatsheetvi.php
