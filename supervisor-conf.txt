@@ -1,0 +1,21 @@
+> enter to supervisord config
+
+/etc/supervisor/conf.d
+
+> create new conf file
+sudo vi book.conf
+
+[program:book]
+command=/var/www/book/bookings -dbname=bookings -dbuser=postgres
+directory=/var/www/book
+autorestart=true
+autostart=true
+stdout_logfile=/var/www/book/logs/supervisord.log
+
+
+aditia@ubuntu-caddy-test:/etc/supervisor/conf.d$ sudo supervisorctl
+supervisor> status
+supervisor> update
+book: added process group
+supervisor> status
+book                             RUNNING   pid 33349, uptime 0:00:03
